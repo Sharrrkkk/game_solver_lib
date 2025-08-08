@@ -6,3 +6,5 @@ lib/
 *lib64*
 test.py
 pyvenv.cfg
+dist/
+*.egg-info*

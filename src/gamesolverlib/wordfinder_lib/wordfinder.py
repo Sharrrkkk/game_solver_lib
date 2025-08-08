@@ -19,6 +19,8 @@ Dependencies (used only within function/method scope):
 - `itertools` (stdlib) - used in `_data_analysis()` method of the `WordFinder` class.
 - `pathlib` (stdlib) - used in `word_finder()` method of the `WordFinder` class and `_wordfinder_test()` function.
 - `sys` (stdlib) - used in `_wordfinder_test()` function.
+- `doctest` (stdlib) - used in `_wordfinder_test()` function.
+- `io` (stdlib) - used in `_wordfinder_test()` function.
 
 Note:
 This design of placing Dependencies within each method or function that uses
@@ -359,23 +361,35 @@ def _wordfinder_test():
     Dependencies:
             - pathlib (stdlib)
             - sys (stdlib)
+            - doctest (stdlib)
+            - io (stdlib)
+            - typing (TextIO) (stdlib)
     """
     import pathlib
     import sys
 
-    args = sys.argv[1:]
-    test_logs_path = pathlib.Path(__file__).resolve().parent / "test_logs"
+    args: list[str] = sys.argv[1:]
+    test_logs_path: Path = pathlib.Path(__file__).resolve().parent / "test_logs"
     if len(args) == 2:
-        functionality = WordFinder.word_finder(args[0], args[1])
+        functionality: tuple[bool, str] = WordFinder.word_finder(args[0], args[1])
         print(functionality)
         with open(test_logs_path / "wordfinder_func.txt", "a") as file:
             file.write(str(functionality) + "\n")
     else:
         import doctest
-        doctest.testmod(verbose=True)
-        with open(test_logs_path /"wordfinder_test.txt", "a") as file:
-            file.write(str() + "\n")
-        
+        import io
+        from typing import TextIO
+
+        output: TextIO = io.StringIO()
+        with open(test_logs_path /"wordfinder_test.txt", "w") as file:
+            original_stdout: TextIO = sys.stdout
+            sys.stdout = output
+            doctest.testmod(sys.modules[__name__], verbose=True)
+            result: str = output.getvalue()
+            sys.stdout = original_stdout  
+            print(result)
+            file.write(result + "\n")
+
 
 if __name__ == "__main__":
     _wordfinder_test()
