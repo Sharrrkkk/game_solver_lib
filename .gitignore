@@ -1,0 +1,8 @@
+__pycache__/
+.vscode/
+game_solver_lib.code-workspace
+bin/
+lib/
+*lib64*
+test.py
+pyvenv.cfg
