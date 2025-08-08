@@ -333,7 +333,7 @@ class WordFinder:
             return (False, letters)
         
 
-def _wordfinder_test():
+def _wordfinder_test()-> None:
     """
     When this module is called directly or called as an imported module but
     you want to test the tests.
@@ -380,7 +380,7 @@ def _wordfinder_test():
         import io
         from typing import TextIO
 
-        output: TextIO = io.StringIO()
+        output: io.StringIO = io.StringIO()
         with open(test_logs_path /"wordfinder_test.txt", "w") as file:
             original_stdout: TextIO = sys.stdout
             sys.stdout = output

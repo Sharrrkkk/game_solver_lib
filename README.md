@@ -36,6 +36,10 @@ The project is cross-platform and can be installed on Unix-like systems (Gnu-Lin
 
 **You can install the project from the PYPI Python package index:**
 
+### **Link:**
+
+`https://pypi.org/project/gamesolverlib/`
+
 ### **Installation instructions as a package from PYPI:**
 
 The project has no external dependencies, so it can be installed globally without the need for a virtual environment; however, using one is recommended.
@@ -84,7 +88,7 @@ Test passed.
 For Windows systems:
 Everything is exactly the same, the only thing that changes are the configuration and installation commands:
 `py -m venv game_solver_lib`
-`.\scripts\activate.ps1`
+`.\scripts\Activate.ps1`
 `pip install gamesolverlib`
 
 ### **Running the library directly in the console, from the project root, when the project has been cloned or downloaded:**
@@ -178,7 +182,7 @@ Another practical example is my `Word Game Solver` project, also published on Gi
 │   └── gamesolverlib
 │       ├── __about__.py
 │       ├── __init__.py
-│       └── wordfinder_lib
+│       └── _wordfinder_lib
 │           ├── test_logs
 │           │   ├── wordfinder_func.txt
 │           │   └── wordfinder_test.txt

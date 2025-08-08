@@ -33,7 +33,7 @@ Repository = "https://github.com/Sharrrkkk/game_solver_lib"
 Issues = "https://github.com/Sharrrkkk/game_solver_lib/issues"
 
 [project.scripts]
-wordfindertest = "gamesolverlib.wordfinder_lib.wordfinder:_wordfinder_test"
+wordfindertest = "gamesolverlib._wordfinder_lib.wordfinder:_wordfinder_test"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
@@ -42,4 +42,4 @@ package-dir = {"" = "src"}
 where = ["src"]
 
 [tool.setuptools.package-data]
-gamesolverlib = ["wordfinder_lib/word_files/*", "wordfinder_lib/info/*", "wordfinder_lib/test_logs/*"]
+gamesolverlib = ["_wordfinder_lib/word_files/*", "_wordfinder_lib/info/*", "_wordfinder_lib/test_logs/*"]
